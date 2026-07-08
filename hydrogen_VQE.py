@@ -252,36 +252,8 @@ if __name__ == "__main__":
 
 
 """
-Loto next-combo prediction: [4, 7, 9, 19, 24, 31, 36]
+Loto next-combo prediction: [4, x, 9, y, 24, z, 36]
 Loto VQE final energy: 0.03338452
 Loto VQE ground energy: 0.03338452
 Loto VQE qubits: 25 (qc25 = 5x5 blocks), params: 150
-"""
-
-
-
-
-
-
-"""
-Ima vezu po šablonu, ne po fizici.
-
-Šta je polazni H₂ model:
-
-Hamiltonijan molekula
-hf_state / početno stanje
-ansatz (DoubleExcitation…)
-VQE: minimizacija ⟨H⟩
-merenje stanja
-Šta ima sada (hydrogen_VQE):
-
-Hamiltonijan — da, ali Ising iz CSV statistike, ne molekularni H
-početno stanje — da, bitovi poslednjeg kola (analog hf_state)
-ansatz — parametrizovano kolo (StronglyEntanglingLayers na 5×5), ne isti DoubleExcitation kao H₂
-VQE — da: GradientDescent na expval(H)
-izlaz — sample → qc25 dekodovanje → 7/39; nije energija molekula
-Zajedničko: VQE petlja (parametri + ⟨H⟩ + optimizer).
-Nije isto: H₂ fizika, isti ansatz, isti smisao energije. Energija ovde je cost nad lotom, ne energija hidrogena.
-
-Znači: ideja preneta (VQE okvir), molekul nije — loto adapter na qc25.
 """
